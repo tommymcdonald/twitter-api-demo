@@ -14,6 +14,7 @@
     "twitter-node-client": "https://github.com/BoyCook/TwitterJSClient.git"
   },
   "scripts": {
+    "server": "npx nodemon server",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -27,5 +28,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
 }
