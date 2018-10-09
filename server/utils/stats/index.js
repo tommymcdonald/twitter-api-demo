@@ -30,24 +30,22 @@ function getCommonWords(list) {
     return number;
   }, {});
 
-  // turn object into array for sorting purposes;
-  let sortable = [];
-  for (let word in obj) {
-    sortable.push([word, obj[word]]);
-  }
+  let sortable = Object.entries(obj).map(([k, v]) => {
+    return { x: k, y: v }
+  });
 
-  // Remove space and RT values from filtered array
+  // Remove space, RT, and IoT values from filtered array
   for (let i = sortable.length - 1; i >= 0; --i) {
-    if (sortable[i][0] === "" || sortable[i][0] === 'RT') {
+    if (sortable.x === '' || sortable.x === 'RT' || sortable.x === 'IoT') {
       sortable.splice(i, 1);
     }
   }
 
-  // Sort the array, reverse to get higher values first, only return top 20 results
+  // Sort the array and reverse to orient data correctly
   sortable.sort(function(a, b) {
-    return a[1] - b[1];
-  }).reverse().slice(0, 20);
+    return a.y - b.y;
+  }).reverse();
 
-
-  return sortable;
+  // Return first 20 results
+  return sortable.slice(0, 20);
 }
