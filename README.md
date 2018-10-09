@@ -5,7 +5,7 @@
 Due to limitations of existing NodeJS Twitter API implementations (such as not being able to use premium search features like non-truncated text and 100+ results) some of the tweets may look incorrect due to truncated text.
 
 ## Before you begin
-You will need Twitter application credentials, as I did not upload my application credentials to github. You can plug these credentials into `/server/config.js` to run this project locally or you can visit http://tmac.io/twitter-search to see the project in action.
+You will need Twitter application credentials, as I did not upload my application credentials to github. You can plug these credentials into `/server/config.js` to run this project locally or you can visit http://http://167.99.63.15 where I've spun up a droplet to see the project in action.
 
 ## Setup
 To set up this project, you need to have NodeJS >= 10.0 and [Yarn](https://yarnpkg.com/en/) installed (although NPM may be used in place of Yarn, and run the simple command of `yarn` or `yarn install`.
