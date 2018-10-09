@@ -3,15 +3,11 @@ const express = require('express');
 const cors = require('cors');
 const Twitter = require('twitter-node-client').Twitter;
 const { getCommonWords } = require('./utils/stats');
-const config = require('./config');
 
 // Local constants
 const app = express();
 const PORT = 3001;
 const twitter = new Twitter();
-
-// Set config vars as ENV variables
-process.env = {...process.env, ...config};
 
 app.use(cors());
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import Tweet from '../tweet';
+import './tweets-list.scss';
 
 function TweetsList(props) {
   let { tweets } = props;
@@ -8,7 +9,7 @@ function TweetsList(props) {
     return <p>Loading...</p>
   }
   return (
-    <div className="tweets-list-container">
+    <div className="tweets-list-container container">
       {tweets.map((tweet, idx) => {
         return <Tweet key={idx} tweet={tweet} />
       })}

@@ -1,9 +1,28 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
 import './App.scss';
 import TweetsList from './components/tweets-list';
-import '../node_modules/react-vis/dist/style.css';
+
+
+
+function Words(props) {
+  let { words } = props;
+
+  return (
+    <div className="words-container">
+      <div>
+        {words.map(word => {
+          return (
+            <div className="single-word">
+              <p>{word.x}</p>
+              <p>{word.y}</p>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
 
 class App extends Component {
   constructor(props) {
@@ -45,7 +64,7 @@ class App extends Component {
 
   updateSearchQuery(event) {
     let searchQuery = event.target.value;
-    if(searchQuery === "") {
+    if (searchQuery === "") {
       searchQuery = "IoT";
     }
     this.setState({ searchQuery });
@@ -53,8 +72,8 @@ class App extends Component {
   }
 
   render() {
-    let { tweets, searchQuery, visibleSection } = this.state;
-    if(tweets) {
+    let { tweets, searchQuery, stats, visibleSection } = this.state;
+    if (tweets) {
       return (
         <div className="App">
           <nav>
@@ -62,12 +81,12 @@ class App extends Component {
               <span>Tweet Visualizer Demo™</span>
               <input type="text" placeholder={`#${searchQuery}`} onChange={this.updateSearchQuery}/>
               <button onClick={() => this.toggleVisibleSection()}>
-                Show {visibleSection === 'tweets' ? 'Word Cloud' : 'Tweets'}
+                Show {visibleSection === 'tweets' ? 'Word Counts' : 'Tweets'}
               </button>
             </div>
           </nav>
           <main>
-            { visibleSection === 'tweets' ? <TweetsList tweets={tweets} /> : <p>Words</p> }
+            {visibleSection === 'tweets' ? <TweetsList tweets={tweets}/> : <Words words={stats}/>}
           </main>
         </div>
       );

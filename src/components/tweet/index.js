@@ -1,4 +1,5 @@
 import React from 'react';
+import './tweet.scss';
 
 function Tweet(props) {
   let { tweet } = props;
@@ -10,8 +11,8 @@ function Tweet(props) {
       </aside>
       <section>
         <header>
-          <p>{user.name} </p>
-          <span>@{user.screen_name}</span>
+          <h3>{user.name} </h3>
+          <h5>@{user.screen_name}</h5>
         </header>
         <main>
           <p>{tweet.text}</p>

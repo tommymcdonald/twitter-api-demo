@@ -17,7 +17,7 @@ function getCommonWords(list) {
 
   // Removing wily characters
   words = words.map(word => {
-    return word.replace(/[^A-Za-z0-9\s]/g,"").replace(/\s{2,}/g, " ")
+    return word.replace(/[^A-Za-z0-9\n\s]/g,"").replace(/\s{2,}/g, " ")
 
   });
 
@@ -36,7 +36,14 @@ function getCommonWords(list) {
 
   // Remove space, RT, and IoT values from filtered array
   for (let i = sortable.length - 1; i >= 0; --i) {
-    if (sortable.x === '' || sortable.x === 'RT' || sortable.x === 'IoT') {
+    // Not proud of this hack
+    if (
+      sortable[i].x === '' ||
+      sortable[i].x === ' ' ||
+      sortable[i].x === 'RT' ||
+      sortable[i].x === 'IoT' ||
+      sortable[i].x === 'iot'
+    ) {
       sortable.splice(i, 1);
     }
   }
