@@ -5,6 +5,12 @@ body {
   font-family: 'Open Sans', Helvetica, sans-serif;
 }
 
+.chart-container {
+  background-color: white;
+  margin-top: 15px;
+  overflow: scroll;
+}
+
 .words-container {
   margin: 0 auto;
   width: 590px;

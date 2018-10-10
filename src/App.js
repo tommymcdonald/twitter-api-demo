@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {XYPlot, VerticalBarSeries, LabelSeries, VerticalGridLines, HorizontalGridLines, XAxis, YAxis} from 'react-vis';
+
 import './App.scss';
+import '../node_modules/react-vis/dist/style.css';
 import TweetsList from './components/tweets-list';
 
 
@@ -8,18 +11,17 @@ import TweetsList from './components/tweets-list';
 function Words(props) {
   let { words } = props;
 
+
   return (
-    <div className="words-container">
-      <div>
-        {words.map(word => {
-          return (
-            <div className="single-word">
-              <p>{word.x}</p>
-              <p>{word.y}</p>
-            </div>
-          )
-        })}
-      </div>
+    <div className="chart-container">
+      <XYPlot horizontal height={600} width= {1680} xType="ordinal">
+        <VerticalGridLines />
+        <HorizontalGridLines />
+        <XAxis title="Word"/>
+        <YAxis title="Count"/>
+        <VerticalBarSeries data={words} />
+        <LabelSeries data={words} getLabel={w => w.y}/>
+      </XYPlot>
     </div>
   )
 }
