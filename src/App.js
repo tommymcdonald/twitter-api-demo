@@ -4,7 +4,6 @@ import {XYPlot, VerticalBarSeries, LabelSeries, VerticalGridLines, HorizontalGri
 
 import './app.scss';
 import './chart.scss';
-import '../node_modules/react-vis/dist/style.css';
 import TweetsList from './components/tweets-list';
 
 
