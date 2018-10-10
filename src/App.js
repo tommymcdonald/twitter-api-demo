@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {XYPlot, VerticalBarSeries, LabelSeries, VerticalGridLines, HorizontalGridLines, XAxis, YAxis} from 'react-vis';
 
-import './App.scss';
+import './app.scss';
+import './chart.scss';
 import '../node_modules/react-vis/dist/style.css';
 import TweetsList from './components/tweets-list';
 
@@ -14,7 +15,7 @@ function Words(props) {
 
   return (
     <div className="chart-container">
-      <XYPlot horizontal height={600} width= {1680} xType="ordinal">
+      <XYPlot height={600} width= {1440} xType="ordinal">
         <VerticalGridLines />
         <HorizontalGridLines />
         <XAxis title="Word"/>
